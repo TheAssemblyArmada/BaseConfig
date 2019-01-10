@@ -99,6 +99,11 @@ else()
     set(GITINFO_COMMIT_AUTHOR "Someone")
 endif()
 
+# Set default version info for the git version module.
+set(GITINFO_VERSION_MAJOR 0)
+set(GITINFO_VERSION_MINOR 0)
+set(GITINFO_VERSION_PATCH 0)
+
 configure_file(src/gitverinfo.c.in src/gitverinfo.c @ONLY)
 
 # Check for threading, win32 or posix.
