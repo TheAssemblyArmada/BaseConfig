@@ -6,7 +6,7 @@
  *
  * @brief Basic header files and defines that are always needed.
  *
- * @copyright Baseconfig is free software: you can redistribute it and/or
+ * @copyright BaseConfig is free software: you can redistribute it and/or
  *            modify it under the terms of the GNU General Public License
  *            as published by the Free Software Foundation, either version
  *            2 of the License, or (at your option) any later version.
@@ -20,6 +20,7 @@
 
 #include "config.h"
 
+#include "warnings.h
 #include "bittype.h"
 #include "compiler.h"
 #include "intrinsics.h"
