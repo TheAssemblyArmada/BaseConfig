@@ -1,6 +1,6 @@
-# Baseconfig
+# BaseConfig
 
-Baseconfig is intended to be used as a git submodule shared between project hosted under the [Assembly Armarda](https://github.com/TheAssemblyArmada)
+BaseConfig is intended to be used as a git submodule shared between project hosted under the [Assembly Armarda](https://github.com/TheAssemblyArmada)
 banner to provide a consistent interface for various utility macros and functions, compiler extensions and intrinsics.
 
 ## Features

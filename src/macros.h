@@ -6,7 +6,7 @@
  *
  * @brief Basic header files and defines that are always needed.
  *
- * @copyright Baseconfig is free software: you can redistribute it and/or
+ * @copyright BaseConfig is free software: you can redistribute it and/or
  *            modify it under the terms of the GNU General Public License
  *            as published by the Free Software Foundation, either version
  *            2 of the License, or (at your option) any later version.
@@ -17,6 +17,13 @@
 
 #ifndef BASE_MACROS_H
 #define BASE_MACROS_H
+
+// The ubiquitous stringify macros for formatting strings.
+#ifndef STRINGIZE
+#define STRINGIZE_HELPER(str) #str
+#define STRINGIZE(str) STRINGIZE_HELPER(str)
+#define STRINGIZE_JOIN(str1, str2) STRINGIZE_HELPER(str1 ## str2)
+#endif // STRINGIZE
 
 // These allow evaluation of compiler specific attributes and intrinics on GCC like compilers.
 // If they don't exist we want them to evaluate to false.
@@ -64,6 +71,8 @@
 #define __mayalias
 #define __noreturn __declspec(noreturn)
 #define __nothrow __declspec(nothrow)
+#define __selectany __declspec(selectany)
+#define __novtable __declspec(novtable)
 #else
 #ifndef __forceinline
 #if __has_attribute(__always_inline__)
@@ -110,6 +119,22 @@
 #define __nothrow __attribute__((__nothrow__))
 #else
 #define __nothrow
+#endif
+#endif
+
+#ifndef __selectany
+#if __has_attribute(__selectany__)
+#define __selectany __attribute__((__selectany__))
+#else
+#define __selectany
+#endif
+#endif
+
+#ifndef __novtable
+#if __has_attribute(__novtable__)
+#define __novtable __attribute__((__novtable__))
+#else
+#define __novtable
 #endif
 #endif
 #endif // COMPILER_MSVC
