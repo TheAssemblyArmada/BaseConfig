@@ -19,6 +19,9 @@
 
 #ifdef _WIN32
 
+#pragma warning(push)
+#pragma warning(disable:4005) // Disable "warning C4005: macro redefinition" warning.
+
 ////////////////////////////////////////////////////////////////////////////////
 //  For Windows 95
 ////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +113,8 @@
 // Users of Visual Studio 10 can do this instead
 //#include    "SDKDDKver.h"
 
-#endif // PLATFORM_WINDOWS
+#pragma warning(pop)
+
+#endif // _WIN32
 
 #endif // BASE_TARGETVER_H
