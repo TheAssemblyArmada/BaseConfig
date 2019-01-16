@@ -114,32 +114,26 @@ extern unsigned long _byteswap_ulong(unsigned long input);
 
 uint8_t _rotl8(uint8_t a, unsigned b);
 #pragma aux _rotl8 = \
-    " .386 " \
     "rol al, cl" parm[al edx] value[al] modify exact[al] nomemory;
 
 uint8_t _rotr8(uint8_t a, unsigned b);
-#pragma aux _rotl8 = \
-    " .386 " \
+#pragma aux _rotr8 = \
     "ror al, cl" parm[al edx] value[al] modify exact[al] nomemory;
 
 uint16_t _rotl16(uint16_t a, unsigned b);
 #pragma aux _rotl16 = \
-    " .386 " \
     "rol ax, cl" parm[ax edx] value[ax] modify exact[ax] nomemory;
 
 uint16_t _rotr16(uint16_t a, unsigned b);
-#pragma aux _rotl16 = \
-    " .386 " \
+#pragma aux _rotr16 = \
     "ror ax, cl" parm[ax edx] value[ax] modify exact[ax] nomemory;
 
 uint32_t _rotl(uint32_t a, unsigned b);
-#pragma aux _rotl32 = \
-    " .386 " \
+#pragma aux _rotl = \
     "rol eax, cl" parm[eax edx] value[eax] modify exact[eax] nomemory;
 
 uint32_t _rotr(uint32_t a, unsigned b);
-#pragma aux _rotl32 = \
-    " .386 " \
+#pragma aux _rotr = \
     "ror eax, cl" parm[eax edx] value[eax] modify exact[eax] nomemory;
 #define HAVE_MSVC_ROTATE
 
