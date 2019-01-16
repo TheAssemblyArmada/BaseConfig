@@ -26,11 +26,12 @@
 #endif // STRINGIZE
 
 // Define some C++ keywords when standard is less than C++11, mainly for watcom support
-#if __cplusplus <= 199711L && !defined COMPILER_MSVC
+#if __cplusplus <= 199711L && !defined _MSC_VER
 #define nullptr NULL
 #define override
 #define final
 #define static_assert(x, ...)
+#define constexpr
 #endif
 
 // These allow evaluation of compiler specific attributes and intrinics on GCC like compilers.
