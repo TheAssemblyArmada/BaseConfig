@@ -20,6 +20,10 @@
 #ifdef _WIN32
 #include <wchar.h>
 
+#ifndef BASE_ALWAYS_H
+#error This file should only be included after baseconfigs always.h
+#endif
+
 /**
  *  @brief Conversion class for interaction between UTF8 APIs and the WINAPI.
  * 
