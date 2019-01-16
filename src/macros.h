@@ -25,6 +25,14 @@
 #define STRINGIZE_JOIN(str1, str2) STRINGIZE_HELPER(str1 ## str2)
 #endif // STRINGIZE
 
+// Define some C++ keywords when standard is less than C++11, mainly for watcom support
+#if __cplusplus <= 199711L && !defined COMPILER_MSVC
+#define nullptr NULL
+#define override
+#define final
+#define static_assert(x, ...)
+#endif
+
 // These allow evaluation of compiler specific attributes and intrinics on GCC like compilers.
 // If they don't exist we want them to evaluate to false.
 #ifndef __has_attribute
