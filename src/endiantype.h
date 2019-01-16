@@ -82,28 +82,28 @@
 
 // Byte access macros for different word sizes for Little Endian.
 #if defined(_WIN32) || __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-    #define GETBYTE32(x, n)    (*((uint8*)&(x)+n))
-    #define GETSBYTE32(x, n)   (*((sint8*)&(x)+n))
-    #define GETBYTE16(x, n)    (*((uint8*)&(x)+n))
-    #define GETSBYTE16(x, n)   (*((sint8*)&(x)+n))
-    #define GETWORD32(x, n)    (*((uint16*)&(x)+n))
-    #define GETSWORD32(x, n)   (*((sint16*)&(x)+n))
+    #define GETBYTE32(x, n)    (*((uint8_t*)&(x)+n))
+    #define GETSBYTE32(x, n)   (*((int8_t*)&(x)+n))
+    #define GETBYTE16(x, n)    (*((uint8_t*)&(x)+n))
+    #define GETSBYTE16(x, n)   (*((int8_t*)&(x)+n))
+    #define GETWORD32(x, n)    (*((uint16_t*)&(x)+n))
+    #define GETSWORD32(x, n)   (*((int16_t*)&(x)+n))
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-    #define GETBYTE32(x, n)	   (*((uint8*)&(x)+(3-n)))
-    #define GETSBYTE32(x, n)   (*((sint8*)&(x)+(3-n)))
-    #define GETBYTE16(x, n)	   (*((uint8*)&(x)+(1-n)))
-    #define GETSBYTE16(x, n)   (*((sint8*)&(x)+(1-n)))
-    #define GETWORD32(x, n)	   (*((uint16*)&(x)+(1-n)))
-    #define GETSWORD32(x, n)   (*((sint16*)&(x)+(1-n)))
+    #define GETBYTE32(x, n)	   (*((uint8_t*)&(x)+(3-n)))
+    #define GETSBYTE32(x, n)   (*((int8_t*)&(x)+(3-n)))
+    #define GETBYTE16(x, n)	   (*((uint8_t*)&(x)+(1-n)))
+    #define GETSBYTE16(x, n)   (*((int8_t*)&(x)+(1-n)))
+    #define GETWORD32(x, n)	   (*((uint16_t*)&(x)+(1-n)))
+    #define GETSWORD32(x, n)   (*((int16_t*)&(x)+(1-n)))
 #else
 #error byte order not supported
 #endif
 
 #define WRITE_LE_UINT16(p, value) ((p)[0] = ((value) & 0xFF), (p)[1] = (((value) >> 8) & 0xFF))
 #define WRITE_LE_UINT32(p, value) ((p)[0] = ((value) & 0xFF), (p)[1] = (((value) >> 8) & 0xFF), (p)[2] = (((value) >> 16) & 0xFF), (p)[3] = (((value) >> 24) & 0xFF))
-#define READ_LE_UINT16(p) ((uint16)(p)[0] | ((uint16)(p)[1] << 8))
-#define READ_LE_UINT32(p) ((uint32)(p)[0] | ((uint32)(p)[1] << 8) | ((uint32)(p)[2] << 16) | ((uint32)(p)[3] << 24))
-#define GETBYTE(x, n)    (*((uint8*)&(x)+n))
-#define GETSBYTE(x, n)   (*((sint8*)&(x)+n))
+#define READ_LE_UINT16(p) ((uint16_t)(p)[0] | ((uint16_t)(p)[1] << 8))
+#define READ_LE_UINT32(p) ((uint32_t)(p)[0] | ((uint32_t)(p)[1] << 8) | ((uint32_t)(p)[2] << 16) | ((uint32_t)(p)[3] << 24))
+#define GETBYTE(x, n)    (*((uint8_t*)&(x)+n))
+#define GETSBYTE(x, n)   (*((int8_t*)&(x)+n))
 
 #endif // BASE_ENDIAN_H
