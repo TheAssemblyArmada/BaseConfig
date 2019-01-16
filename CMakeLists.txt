@@ -100,9 +100,17 @@ else()
 endif()
 
 # Set default version info for the git version module.
-set(GITINFO_VERSION_MAJOR 0)
-set(GITINFO_VERSION_MINOR 0)
-set(GITINFO_VERSION_PATCH 0)
+if(NOT GITINFO_VERSION_MAJOR)
+    set(GITINFO_VERSION_MAJOR 0)
+endif()
+
+if(NOT GITINFO_VERSION_MINOR)
+    set(GITINFO_VERSION_MINOR 0)
+endif()
+
+if(NOT GITINFO_VERSION_PATCH)
+    set(GITINFO_VERSION_PATCH 0)
+endif()
 
 configure_file(src/gitverinfo.c.in src/gitverinfo.c @ONLY)
 
