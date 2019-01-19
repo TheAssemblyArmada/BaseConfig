@@ -46,7 +46,7 @@
 
 // This section defines some keywords defining calling conventions
 // where the keywords needed differ between compilers.
-#ifndef _MSC_VER
+#if !defined _MSC_VER && !defined __WATCOMC__
 #ifndef __fastcall
 #if __has_attribute(fastcall)
 #define __fastcall __attribute__((fastcall))
