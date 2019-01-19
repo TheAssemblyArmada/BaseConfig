@@ -33,6 +33,10 @@ typedef UChar unichar_t;
 typedef wchar_t unichar_t;
 #endif
 
+#ifndef _MSC_VER
+typedef int BOOL; // For ABI compatibility with old code only, do not use in new code.
+#endif
+
 // Use these when using pointers to do type punning.
 #if __has_attribute(__may_alias__)
     typedef float __attribute__((__may_alias__)) float_a;
