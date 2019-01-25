@@ -13,8 +13,6 @@
  *            A full copy of the GNU General Public License can be found in
  *            LICENSE
  */
-#pragma once
-
 #ifndef BASE_MACROS_H
 #define BASE_MACROS_H
 

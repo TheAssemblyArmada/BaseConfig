@@ -13,8 +13,6 @@
  *            A full copy of the GNU General Public License can be found in
  *            LICENSE
  */
-#pragma once
-
 #ifndef BASE_ENDIANTYPE_H
 #define BASE_ENDIANTYPE_H
 
@@ -106,4 +104,4 @@
 #define GETBYTE(x, n)    (*((uint8_t*)&(x)+n))
 #define GETSBYTE(x, n)   (*((int8_t*)&(x)+n))
 
-#endif // BASE_ENDIAN_H
+#endif // BASE_ENDIANTYPE_H
