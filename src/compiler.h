@@ -18,8 +18,6 @@
  * (Electronic Arts Standard Type Library), written by Paul Pedriana of Maxis.
  * Source: http://gpl.ea.com/
  */
-#pragma once
-
 #ifndef BASE_COMPILER_H
 #define BASE_COMPILER_H
 
