@@ -214,7 +214,7 @@
 #error Unknown processor
 #endif
 #if !defined(SYSTEM_BIG_ENDIAN) && !defined(SYSTEM_LITTLE_ENDIAN)
-#if defined(HAVE_BIG_ENDIAN) || (defined(__BYTE_ORDER) && defined(__BIG_ENDIAN) && (__BYTE_ORDER == __BIG_ENDIAN)))
+#if defined(HAVE_BIG_ENDIAN) || (defined(__BYTE_ORDER) && defined(__BIG_ENDIAN) && (__BYTE_ORDER == __BIG_ENDIAN))
 #define SYSTEM_BIG_ENDIAN
 #else
 #define SYSTEM_LITTLE_ENDIAN
@@ -558,5 +558,4 @@
 #define PLATFORM_WORD_SIZE PLATFORM_PTR_SIZE
 #endif
 #endif
-
 #endif // BASE_PLATFORM_H
