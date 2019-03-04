@@ -110,6 +110,23 @@
 #define strtrim ex_strtrim
 #endif
 
+#if !defined HAVE_STD_CLAMP && defined __cplusplus
+namespace std
+{
+    template<class T, class Compare>
+    constexpr const T &clamp(const T &v, const T &lo, const T &hi, Compare comp)
+    {
+        return comp(v, lo) ? lo : comp(hi, v) ? hi : v;
+    }
+
+    template<class T>
+    constexpr const T &clamp(const T &v, const T &lo, const T &hi)
+    {
+        return clamp(v, lo, hi, std::less<>());
+    }
+}
+#endif
+
 typedef struct stat stat_t;
 
 #endif // BASE_ALWAYS_H

@@ -1,3 +1,4 @@
+include(CheckCXXSourceCompiles)
 include(CheckSymbolExists)
 include(CheckIncludeFile)
 
@@ -30,3 +31,13 @@ check_symbol_exists(strlwr "string.h" HAVE_STRLWR)
 check_symbol_exists(strupr "string.h" HAVE_STRUPR)
 check_symbol_exists(strlcat "string.h" HAVE_STRLCAT)
 check_symbol_exists(strlcpy "string.h" HAVE_STRLCPY)
+
+check_cxx_source_compiles("
+    #include <algorithm>
+    int main(int argc, char **argv) {
+        return std::clamp(argc, 0, 50);
+    }" HAVE_STD_CLAMP)
+
+if(NOT HAVE_STD_CLAMP)
+message("std::clamp not found, standard lower than C++17? Will provide implementation, though this is technically undefined behavior.")
+endif()

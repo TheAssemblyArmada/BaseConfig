@@ -35,6 +35,8 @@
 #cmakedefine HAVE_STRLCAT
 #cmakedefine HAVE_STRLCPY
 
+#cmakedefine HAVE_STD_CLAMP
+
 #cmakedefine HAVE_MSVC_ROTATE
 #cmakedefine HAVE_GCC_ROTATE
 
