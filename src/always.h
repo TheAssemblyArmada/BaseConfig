@@ -109,6 +109,8 @@
 #endif
 
 #if !defined HAVE_STD_CLAMP && defined __cplusplus
+#include <functional>
+
 namespace std
 {
     template<class T, class Compare>
