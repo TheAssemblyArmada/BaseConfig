@@ -30,6 +30,7 @@
 #define final
 #define static_assert(x, ...)
 #define constexpr
+#define noexcept
 #endif
 
 // These allow evaluation of compiler specific attributes and intrinics on GCC like compilers.
