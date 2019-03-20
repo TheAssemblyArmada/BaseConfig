@@ -458,10 +458,16 @@
 #define PROCESSOR_X86_64
 #define SYSTEM_LITTLE_ENDIAN
 #define PLATFORM_DESCRIPTION "Windows on X86-64"
+#if !defined(_AMD64_)
+#define _AMD64_
+#endif
 #elif defined(_M_IX86) || defined(_X86_)
 #define PROCESSOR_X86
 #define SYSTEM_LITTLE_ENDIAN
 #define PLATFORM_DESCRIPTION "Windows on X86"
+#if !defined(_X86_)
+#define _X86_
+#endif
 #elif defined(_M_IA64) || defined(_IA64_)
 #define PROCESSOR_IA64
 #define SYSTEM_LITTLE_ENDIAN
@@ -469,7 +475,10 @@
 #elif defined(_M_ARM)
 #define PROCESSOR_ARM
 #define SYSTEM_LITTLE_ENDIAN
-#define PLATFORM_DESCRIPTION "Windows CE on ARM"
+#define PLATFORM_DESCRIPTION "Windows on ARM"
+#if !defined(_ARM_)
+#define _ARM_
+#endif
 #else // Possibly other Windows CE variants
 #error Unknown processor
 #error Unknown endianness

@@ -135,6 +135,17 @@ endif()
 add_library(base STATIC src/stringex.c ${CMAKE_CURRENT_BINARY_DIR}/src/gitverinfo.c ${BASE_HEADERS})
 target_include_directories(base PUBLIC src ${CMAKE_CURRENT_BINARY_DIR}/src)
 
+if(WIN32 OR "${CMAKE_SYSTEM}" MATCHES "Windows")
+    target_compile_definitions(base PUBLIC WIN32_LEAN_AND_MEAN=1 _CRT_SECURE_NO_DEPRECATE=1 _CRT_NONSTDC_NO_DEPRECATE=1 _WINSOCK_DEPRECATED_NO_WARNINGS=1 NOMINMAX=1)
+    
+    if(BASECONF_WINSOCK32)
+        target_compile_definitions(base PUBLIC BUILD_WITH_WINSOCK=1)
+        target_link_libraries(base INTERFACE wsock32) # Link original winsock32 to coincide with includes.
+    else()
+        target_link_libraries(base INTERFACE ws2_32)
+    endif()
+endif()
+
 # We don't need to link anything if we have win32 threads. Affects MinGW builds primarily.
 if(CMAKE_USE_PTHREADS_INIT AND NOT CMAKE_USE_WIN32_THREADS_INIT)
     target_link_libraries(base Threads::Threads)

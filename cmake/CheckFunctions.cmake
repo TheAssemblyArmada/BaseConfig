@@ -6,6 +6,7 @@ check_include_file(strings.h HAVE_STRINGS_H)
 check_include_file(unistd.h HAVE_UNISTD_H)
 check_include_file(libgen.h HAVE_LIBGEN_H)
 check_include_file(dirent.h HAVE_DIRENT_H)
+check_include_file(sched.h HAVE_SCHED_H)
 
 if(HAVE_STRINGS_H)
 check_symbol_exists(strcasecmp "strings.h" HAVE_STRCASECMP)

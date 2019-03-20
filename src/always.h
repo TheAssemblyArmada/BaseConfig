@@ -17,6 +17,7 @@
 #define BASE_ALWAYS_H
 
 #include "config.h"
+#include "targetver.h"
 
 #include "bittype.h"
 #include "compiler.h"
@@ -24,14 +25,9 @@
 #include "macros.h"
 #include "platform.h"
 #include "stringex.h"
-#include "targetver.h"
-#include <sys/stat.h>
-#include <sys/types.h>
 
 #ifdef PLATFORM_WINDOWS
-#define NOMINMAX 1
-#include <windows.h>
-// Include after windows.h
+#include <windef.h>
 #include "utf.h"
 #define NAME_MAX FILENAME_MAX
 
@@ -126,7 +122,5 @@ namespace std
     }
 }
 #endif
-
-typedef struct stat stat_t;
 
 #endif // BASE_ALWAYS_H
