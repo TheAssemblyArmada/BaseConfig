@@ -46,5 +46,6 @@
 #cmakedefine HAVE_UNISTD_H
 #cmakedefine HAVE_LIBGEN_H
 #cmakedefine HAVE_DIRENT_H
+#cmakedefine HAVE_SCHED_H
 
 #endif // BASE_CONFIG_H

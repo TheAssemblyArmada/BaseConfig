@@ -22,6 +22,8 @@
 #include "macros.h"
 #include <inttypes.h>
 #include <limits.h>
+#include <stddef.h>
+#include <sys/types.h>
 #include <wchar.h>
 
 #ifdef BUILD_WITH_ICU
