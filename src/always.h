@@ -36,26 +36,6 @@
 #endif
 #endif
 
-#ifdef HAVE_STRINGS_H
-#include <strings.h>
-#endif
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#define O_TEXT 0
-#define O_BINARY 0
-#else
-#include <io.h>
-#endif
-
-#ifdef HAVE_LIBGEN_H
-#include <libgen.h>
-#endif
-
-#ifdef HAVE_DIRENT_H
-#include <dirent.h>
-#endif
-
 // Enable inline recursion for MSVC
 #ifdef COMPILER_MSVC
 #pragma inline_recursion(on)
