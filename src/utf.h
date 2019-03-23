@@ -16,7 +16,11 @@
 #define BASE_UTF_H
 
 #ifdef _WIN32
+#ifdef __WATCOMC__
+#include <windows.h>
+#else
 #include <stringapiset.h>
+#endif
 #include <wchar.h>
 
 #ifndef BASE_ALWAYS_H
