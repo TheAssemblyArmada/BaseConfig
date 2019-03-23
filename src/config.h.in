@@ -32,6 +32,7 @@
 #cmakedefine HAVE_STRUPR
 #cmakedefine HAVE_STRLCAT
 #cmakedefine HAVE_STRLCPY
+#cmakedefine HAVE_POSIX_TIMERS
 
 #cmakedefine HAVE_STD_CLAMP
 
@@ -47,5 +48,11 @@
 #cmakedefine HAVE_LIBGEN_H
 #cmakedefine HAVE_DIRENT_H
 #cmakedefine HAVE_SCHED_H
+#cmakedefine HAVE_UTIME_H
+#cmakedefine HAVE_SYS_UTIME_H
+#cmakedefine HAVE_SYS_TIME_H
+#cmakedefine HAVE_SYS_STATVFS_H
+#cmakedefine HAVE_SYS_SYSINFO_H
+#cmakedefine HAVE_MACOS_GCD
 
 #endif // BASE_CONFIG_H
