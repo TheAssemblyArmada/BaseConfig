@@ -47,7 +47,7 @@
 // where the keywords needed differ between compilers.
 #if !defined _MSC_VER && !defined __WATCOMC__
 #ifndef __fastcall
-#if __has_attribute(fastcall)
+#if __has_attribute(fastcall) && defined __i386__
 #define __fastcall __attribute__((fastcall))
 #else
 #define __fastcall
@@ -55,7 +55,7 @@
 #endif
 
 #ifndef __cdecl
-#if __has_attribute(cdecl)
+#if __has_attribute(cdecl) && defined __i386__
 #define __cdecl __attribute__((cdecl))
 #else
 #define __cdecl
@@ -63,7 +63,7 @@
 #endif
 
 #ifndef __stdcall
-#if __has_attribute(stdcall)
+#if __has_attribute(stdcall) && defined __i386__
 #define __stdcall __attribute__((stdcall))
 #else
 #define __stdcall
