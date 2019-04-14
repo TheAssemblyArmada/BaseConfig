@@ -28,9 +28,7 @@
 
 #ifdef PLATFORM_WINDOWS
 #include <windef.h>
-#ifdef __cplusplus
 #include "utf.h"
-#endif
 #define NAME_MAX FILENAME_MAX
 
 #ifndef PATH_MAX
