@@ -16,7 +16,7 @@
 #define BASE_UTF_H
 
 // Only useful on windows when building a C++ project
-#ifdef _WIN32 && defined __cplusplus
+#if defined _WIN32 && defined __cplusplus
 #ifdef __WATCOMC__
 #include <windows.h>
 #else
