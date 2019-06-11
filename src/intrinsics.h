@@ -105,34 +105,34 @@ int _interlockedbittestandset(volatile long *base, long offset);
     "movzx eax,cl" parm[eax edx] value[eax] modify[cl]
 
 extern unsigned short _byteswap_ushort(unsigned short input);
-#pragma aux _byteswap_ushort = "ror ax,8" parm[ax] value[ax] modify exact[ax] nomemory;
+#pragma aux _byteswap_ushort = "xchg al, ah" parm[ax] value[ax] modify[ax]
 
 extern unsigned long _byteswap_ulong(unsigned long input);
-#pragma aux _byteswap_ulong = "bswap eax" parm[eax] value[eax] modify exact[eax] nomemory;
+#pragma aux _byteswap_ulong = "bswap eax" parm[eax] value[eax] modify[eax]
 
 uint8_t _rotl8(uint8_t a, unsigned b);
 #pragma aux _rotl8 = \
-    "rol al, cl" parm[al edx] value[al] modify exact[al] nomemory;
+    "rol al, cl" parm[al][ecx] value[al] modify[ecx]
 
 uint8_t _rotr8(uint8_t a, unsigned b);
 #pragma aux _rotr8 = \
-    "ror al, cl" parm[al edx] value[al] modify exact[al] nomemory;
+    "ror al, cl" parm[al][ecx] value[al] modify[ecx]
 
 uint16_t _rotl16(uint16_t a, unsigned b);
 #pragma aux _rotl16 = \
-    "rol ax, cl" parm[ax edx] value[ax] modify exact[ax] nomemory;
+    "rol ax, cl" parm[ax][ecx] value[ax] modify[ecx]
 
 uint16_t _rotr16(uint16_t a, unsigned b);
 #pragma aux _rotr16 = \
-    "ror ax, cl" parm[ax edx] value[ax] modify exact[ax] nomemory;
+    "ror ax, cl" parm[ax][ecx] value[ax] modify[ecx]
 
 uint32_t _rotl(uint32_t a, unsigned b);
 #pragma aux _rotl = \
-    "rol eax, cl" parm[eax edx] value[eax] modify exact[eax] nomemory;
+    "rol eax, cl" parm[eax][ecx] value[eax] modify[ecx]
 
 uint32_t _rotr(uint32_t a, unsigned b);
 #pragma aux _rotr = \
-    "ror eax, cl" parm[eax edx] value[eax] modify exact[eax] nomemory;
+    "ror eax, cl" parm[eax][ecx] value[eax] modify[ecx]
 #define HAVE_MSVC_ROTATE
 
 #endif /* __WATCOMC__ */
