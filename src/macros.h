@@ -145,6 +145,12 @@
 #define __novtable
 #endif
 #endif
+
+// special MSVC++ __interface keyword is an alias for
+// struct (not class) since members are public by default.
+#ifndef __interface
+#define __interface struct
+#endif
 #endif // COMPILER_MSVC
 
 /**
