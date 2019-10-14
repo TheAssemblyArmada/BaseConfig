@@ -132,7 +132,7 @@ if(CMAKE_CONFIGURATION_TYPES)
     file(GLOB_RECURSE BASE_HEADERS "*.h")
 endif()
 
-add_library(base STATIC src/stringex.c ${CMAKE_CURRENT_BINARY_DIR}/src/gitverinfo.c ${BASE_HEADERS})
+add_library(base STATIC src/stringex.c src/win32compat.c ${CMAKE_CURRENT_BINARY_DIR}/src/gitverinfo.c ${BASE_HEADERS})
 target_include_directories(base PUBLIC src ${CMAKE_CURRENT_BINARY_DIR}/src)
 
 if(WIN32 OR "${CMAKE_SYSTEM}" MATCHES "Windows")
