@@ -21,7 +21,7 @@
 
 #include "macros.h"
 
-#if _MSC_VER >= 1600
+#if _MSC_VER >= 1600 || !defined _MSC_VER
 #include <inttypes.h>
 #else
     
