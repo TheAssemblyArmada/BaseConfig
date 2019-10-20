@@ -144,8 +144,6 @@ typedef _W64 unsigned int uintptr_t;
 #define WINT_MIN  0
 #define WINT_MAX  _UI16_MAX
 
-#endif
-
 #define INT8_C(val)  val##i8
 #define INT16_C(val) val##i16
 #define INT32_C(val) val##i32
