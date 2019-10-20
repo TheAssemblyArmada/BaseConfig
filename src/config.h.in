@@ -50,6 +50,7 @@
 #cmakedefine HAVE_LIBGEN_H
 #cmakedefine HAVE_DIRENT_H
 #cmakedefine HAVE_FNMATCH_H
+#cmakedefine HAVE_PWD_H
 #cmakedefine HAVE_SCHED_H
 #cmakedefine HAVE_UTIME_H
 #cmakedefine HAVE_SYS_UTIME_H
