@@ -54,8 +54,9 @@ static char **CommandLineToArgvU(LPCWSTR lpCmdLine, int *pNumArgs)
 
         for (i = 0; i < *pNumArgs; i++) {
             size_t cur_arg_u_len;
+            int conv_len;
             argv_u[i] = cur_arg_u;
-            int conv_len = WideCharToMultiByte(CP_UTF8, 0, argv_w[i], -1, cur_arg_u, lpCmdLine_len, NULL, NULL);
+            conv_len = WideCharToMultiByte(CP_UTF8, 0, argv_w[i], -1, cur_arg_u, lpCmdLine_len, NULL, NULL);
 
             cur_arg_u_len = argv_w[i] != NULL ? conv_len : conv_len + 1;
             cur_arg_u += cur_arg_u_len;
@@ -84,6 +85,7 @@ void Handle_Win32_Args(int *argc, char ***argv)
 
 void Handle_Win32_Console(void)
 {
+#ifndef __WATCOMC__
     /* Attach to the console that started us if any */
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
         /* We attached successfully, lets redirect IO to the consoles handles */
@@ -91,5 +93,6 @@ void Handle_Win32_Console(void)
         freopen("CONOUT$", "w", stdout);
         freopen("CONOUT$", "w", stderr);
     }
+#endif
 }
 #endif
