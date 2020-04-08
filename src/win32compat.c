@@ -23,7 +23,7 @@
 // Global so we can ensure the argument list is freed at exit.
 static char **g_argv;
 
-static void Free_Argv(void)
+static void __cdecl Free_Argv(void)
 {
     LocalFree(g_argv);
 }
