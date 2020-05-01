@@ -23,7 +23,11 @@
 // Global so we can ensure the argument list is freed at exit.
 static char **g_argv;
 
+#ifdef MSC_VER
 static void __cdecl Free_Argv(void)
+#else
+static void Free_Argv(void)
+#endif
 {
     LocalFree(g_argv);
 }
