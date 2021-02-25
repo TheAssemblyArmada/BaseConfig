@@ -25,6 +25,7 @@
 #include "macros.h"
 #include "platform.h"
 #include "stringex.h"
+#include "unichar.h"
 
 #ifdef PLATFORM_WINDOWS
 #include <windef.h>
@@ -39,19 +40,6 @@
 // Enable inline recursion for MSVC
 #ifdef COMPILER_MSVC
 #pragma inline_recursion(on)
-#endif
-
-// Alias the ICU unicode functions when not building against it.
-#if !defined BUILD_WITH_ICU && defined PLATFORM_WINDOWS
-#define u_strlen wcslen
-#define u_strcpy wcscpy
-#define u_strcat wcscat
-#define u_vsnprintf_u vswprintf
-#define u_strcmp wcscmp
-#define u_strcasecmp(x, y, z) _wcsicmp(x, y)
-#define u_isspace iswspace
-#define u_tolower towlower
-#define U_COMPARE_CODE_POINT_ORDER 0x8000
 #endif
 
 // Based on the build system generated config.h information we define some stuff here
