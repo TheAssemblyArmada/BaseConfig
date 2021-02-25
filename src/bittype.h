@@ -162,14 +162,6 @@ typedef _W64 unsigned int uintptr_t;
 #include <limits.h>
 #include <stddef.h>
 #include <sys/types.h>
-#include <wchar.h>
-
-#ifdef BUILD_WITH_ICU
-#include <unicode/uchar.h>
-typedef UChar unichar_t;
-#else
-typedef wchar_t unichar_t;
-#endif
 
 #ifndef _MSC_VER
 typedef int BOOL; // For ABI compatibility with old code only, do not use in new code.
@@ -183,7 +175,6 @@ typedef int BOOL; // For ABI compatibility with old code only, do not use in new
     typedef double __attribute__((__may_alias__)) double_a;
     typedef int64_t __attribute__((__may_alias__)) int64_a;
     typedef uint64_t __attribute__((__may_alias__)) uint64_a;
-    typedef unichar_t __attribute__((__may_alias__)) unichar_a;
 #else
     // MSVC doesn't currently enforce strict aliasing.
     typedef float float_a;
@@ -192,7 +183,6 @@ typedef int BOOL; // For ABI compatibility with old code only, do not use in new
     typedef double double_a;
     typedef int64_t int64_a;
     typedef uint64_t uint64_a;
-    typedef unichar_t unichar_a;
 #endif
 
 // Union to use for type punning floats.

@@ -16,6 +16,7 @@
 #define BASE_STRINGEX_H
 
 #include "bittype.h"
+#include "unichar.h"
 
 #ifdef __cplusplus
 extern "C" {
