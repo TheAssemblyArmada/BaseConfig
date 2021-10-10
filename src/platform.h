@@ -23,6 +23,9 @@
 
 /*-----------------------------------------------------------------------------
  * Currently supported platform indentification defines include:
+ *    PLATFORM_NINTENDO_SWITCH
+ *    PLATFORM_PSP
+ *    PLATFORM_PSVITA
  *    PLATFORM_PS3
  *    PLATFORM_PS3_PPU
  *    PLATFORM_PS3_SPU
@@ -72,8 +75,38 @@
 #define PLATFORM_DESKTOP
 #endif
 
+// Nintendo Switch
+#if defined(PLATFORM_NINTENDO_SWITCH) || defined(__SWITCH__)
+#undef PLATFORM_NINTENDO_SWITCH
+#define PLATFORM_NINTENDO_SWITCH 1
+#define PLATFORM_NAME "Nintendo Switch"
+#define PROCESSOR_ARM64
+#define SYSTEM_LITTLE_ENDIAN
+#define PLATFORM_DESCRIPTION "Nintendo Switch on ARM64"
+#define PLATFORM_CONSOLE
+
+// PlayStation Portable (PSP)
+#elif defined(PLATFORM_PSP) || defined(__psp__)
+#undef PLATFORM_PSP
+#define PLATFORM_PSP 1
+#define PLATFORM_NAME "PSP"
+#define PROCESSOR_R3000
+#define SYSTEM_LITTLE_ENDIAN
+#define PLATFORM_DESCRIPTION "PSP on R3000"
+#define PLATFORM_CONSOLE
+
+// PlayStation Vita
+#elif defined(PLATFORM_PSVITA) || defined(VITA)
+#undef PLATFORM_PSVITA
+#define PLATFORM_PSVITA 1
+#define PLATFORM_NAME "PS Vita"
+#define PROCESSOR_ARM
+#define SYSTEM_LITTLE_ENDIAN
+#define PLATFORM_DESCRIPTION "PS Vita on ARM"
+#define PLATFORM_CONSOLE
+
 // PlayStation 3 PPU (Primary Processing Unit)
-#if defined(PLATFORM_PS3_PPU) || defined(PLATFORM_PS3) || defined(__PU__) || defined(__PPU__)
+#elif defined(PLATFORM_PS3_PPU) || defined(PLATFORM_PS3) || defined(__PU__) || defined(__PPU__)
 #undef PLATFORM_PS3_PPU
 #define PLATFORM_PS3_PPU 1
 #undef PLATFORM_PS3
